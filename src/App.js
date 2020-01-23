@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React , {Component} from 'react';
+import './styles/App.css'
+import {BrowserRouter , Route , Switch} from 'react-router-dom'
+import Navbar from './Components/Navbar'
+import FormSearch from './Components/FormSearch'
+import SongsList from './Components/SongsList'
+import SongsContextProvider from './Context/SongsContext'
+import SongLyrics from './Components/SongLyrics';
+class App extends Component{
+  render(){
+    return (
+      <BrowserRouter>
+        <div className="App d-flex justify-content-center align-items-center flex-column">
+          <Navbar />
+          <Switch>
+            <Route exact path='/'>
+              <SongsContextProvider>
+                <FormSearch />
+                <SongsList/>
+              </SongsContextProvider>
+            </Route>
+            <Route path='/:Track_id' render={(props) => <SongsContextProvider> <SongLyrics {...props} /> </SongsContextProvider>} />
+          </Switch>
+      </div>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
