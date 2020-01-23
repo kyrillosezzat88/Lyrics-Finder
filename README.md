@@ -1,11 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-##Technology
+## Technology
 -Html5/css3/Javascript/Bootstrap4/React-contextApi-Hooks/musixmatch API/axios
 
 ## Live Demo
-https://www.lyricsfindeer.netlify.com
-
+https://lyricsfindeer.netlify.com/
 ## Available Scripts
 
 In the project directory, you can run:
